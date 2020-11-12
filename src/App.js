@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from "react-router";
+import { Link } from "react-router-dom";
+
+//components
+import MovieList from "./components/MovieList";
+import MovieDetail from "./components/MovieDetail";
+import Home from "./components/Home";
+
+//styling
+import { GlobalStyle, theme } from "./styles";
+import { ThemeProvider } from "styled-components";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Link to="/movies" style={{ margin: 10, float: "right" }}>
+        Movies
+      </Link>
+      <Switch>
+        <Route path="/movies/:movieSlug">
+          <MovieDetail />
+        </Route>
+        <Route path="/movies">
+          <MovieList />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </ThemeProvider>
   );
 }
 
