@@ -9,7 +9,6 @@ const MovieItem = (props) => {
       <Link to={`/movies/${movie.slug}`}>
         <img src={movie.poster} alt={movie.title} />
       </Link>
-      <p>{movie.title}</p>
     </MovieWrapper>
   );
 };
