@@ -1,8 +1,7 @@
 import React from "react";
-import { DetailWrapper, CopyButtonStyled } from "../styles";
+import { DetailWrapper, RandomWrapper } from "../styles";
 import movies from "../movies";
 import { Redirect, useParams } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import MovieItem from "./MovieItem";
 
 const MovieDetail = () => {
@@ -24,18 +23,24 @@ const MovieDetail = () => {
 
   return (
     <>
-      <DetailWrapper>
-        <h1>{movie.title}</h1>
-        <img src={movie.poster} alt={movie.title} />
-        <p>{movie.plot}</p>
-
+      {" "}
+      <RandomWrapper>
+        <h4>Recommended Movies</h4>
         {recommendedList}
-
-        <CopyButtonStyled
+      </RandomWrapper>
+      <DetailWrapper className="col-lg-8 col-md-12 col-sm-12">
+        <button
+          type="button"
+          class="btn btn-outline-danger btn-sm"
           onClick={() => navigator.clipboard.writeText(window.location.href)}
         >
-          Copy
-        </CopyButtonStyled>
+          Copy Url
+        </button>
+        <h1>{movie.title}</h1> <img src={movie.poster} alt={movie.title} />
+        <p>{movie.plot}</p>
+        <p>{movie.released}</p>
+        <p>{movie.runtime}</p>
+        <p>{movie.genre}</p>
       </DetailWrapper>
     </>
   );

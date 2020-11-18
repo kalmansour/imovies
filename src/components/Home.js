@@ -1,16 +1,15 @@
 import React from "react";
-import { Description, ShopImage, Title } from "../styles";
+import { HomeWrapper } from "../styles";
 
 const Home = () => {
   return (
-    <>
-      <Title>iMovies</Title>
-      <Description>Your Movie Library</Description>
-      <ShopImage
+    <HomeWrapper>
+      <img
         alt="imovies"
-        src="https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2018/03/13153742/RT_300EssentialMovies_700X250.jpg"
+        src="https://www.wallpaperup.com/uploads/wallpapers/2015/12/12/858715/38ab8700ce1051a9b2311504d06f8289-1000.jpg"
       />
-    </>
+      <h4>These are the movies you're looking for</h4>
+    </HomeWrapper>
   );
 };
 
